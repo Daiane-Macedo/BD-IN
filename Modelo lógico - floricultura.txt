@@ -1,0 +1,37 @@
+Cliente( nome:varchar[50], email:varchar[30], cep:bigint, cpf_cliente:bigserial)
+	Primary Key (cpf_cliente)
+
+Pedido(valor: varchar[9], end_entrega:varchar[100], data:char[10], id_pedido:serial, cpf_cliente:bigint, cnpj:bigint)
+	Primary Key (id_pedido)
+	CPF_cliente referencia Cliente
+	CNPJ referencia Floricultura
+
+Flor(id_flor:serial, nome:varchar[], preço:varchar[9])
+	Primary_Key:(id_flor)
+
+Pedido_Flor (id_flor:serial, id_pedido:serial, qtd_flor:int)
+	Primary Key (id_flor, id_pedido)
+	ID_flor referencia Flor
+	ID_pedido referencia Pedido
+
+Floricultura:(cnpj: bigint, nome: varchar[])
+	Primary Key (cnpj)
+
+Flor_Floricultura(id_flor:serial, cnpj:bigserial)
+	Primary Key (id_flor, cnpj)
+	ID_flor referencia Flor
+	cnpj referencia Floricultura
+
+Região (nome:varchar[30], CEP:serial)
+	Primary Key (cep)
+
+Região_Floricultura (cep, cnpj)
+	Primary Key (cep, cnpj)
+	cep referencia Região
+	cnpj referencia Floricultura
+
+
+ 
+	
+	
+
