@@ -1,0 +1,29 @@
+Localidade:(nome:varchar[50], cod_localidade: serial)
+	Primary Key (cod_localidade)
+
+Zona Eleitoral:(cep:longint, nº_zona:serial, cod_localidade)
+	Primary Key (nº zona)
+	Cod_localidade referencia Localidade
+
+Seção:(nº_seção:serial, nº_zona:int)
+	Primary Key (nº_seção)
+	Num_zona referencia Zona
+	
+Eleitor:(nº_rg:bigserial, nº_título:char[12], nome:varchar[40], num_seção:int)
+	Pimary Key (nº_rg)
+	Num_seção referencia Sessão
+
+Partido:(nº_partido:serial, nome:varchar[20])
+	Primary Key(num_partido)
+
+Candidato:(num_candidato:serial, nome:varchar[50], cargo: varchar[8], cod_localidade:int, num_partido)
+	Primary Key (nº_candidato)
+	Cod_localidade referencia Localidade
+	Num_partido referencia Partido
+
+Voto:(id_voto,num_seção:int, num_candidato:int, data:char[10])
+	Primary Key (id_voto)
+	Num_candidato referencia Candidato
+	Num_seção referencia Seção
+
+	
