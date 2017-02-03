@@ -14,7 +14,7 @@ Pedido_Flor:(id_flor:serial, id_pedido:serial, qtd_flor:int)
 	ID_flor referencia Flor
 	ID_pedido referencia Pedido
 
-Floricultura:(cnpj: bigserial, nome: varchar[])
+Floricultura:(cnpj: bigserial, nome: varchar[20])
 	Primary Key (cnpj)
 
 Flor_Floricultura:(id_flor:serial, cnpj:bigserial)
